@@ -14,7 +14,11 @@ export const OnboardEmployeeSchema = z.object({
   managerId: z.string().describe('Reporting manager employee ID (e.g., E001)'),
   equipment: z
     .array(
-      z.enum(['Laptop', 'Monitor', 'Keyboard', 'Mouse', 'Headset', 'ID Card', 'Office Supplies', 'Software License'])
+      z.enum([
+        'Laptop', 'MacBook Pro', 'Monitor', '27-inch Monitor',
+        'Keyboard', 'Mouse', 'Headset', 'Webcam', 'Docking Station',
+        'Desktop', 'ID Card', 'Office Supplies', 'Software License',
+      ])
     )
     .default(['Laptop', 'ID Card'])
     .describe('Equipment items to provision for the new employee'),

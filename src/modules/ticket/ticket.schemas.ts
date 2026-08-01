@@ -9,7 +9,11 @@ import { z } from '@nitrostack/core';
 export const CreateTicketSchema = z.object({
   employeeId: z.string().describe('Employee ID requesting the equipment (e.g., E001)'),
   item: z
-    .enum(['Laptop', 'Monitor', 'Keyboard', 'Mouse', 'Headset', 'ID Card', 'Office Supplies', 'Software License'])
+    .enum([
+      'Laptop', 'MacBook Pro', 'Monitor', '27-inch Monitor',
+      'Keyboard', 'Mouse', 'Headset', 'Webcam', 'Docking Station',
+      'Desktop', 'ID Card', 'Office Supplies', 'Software License',
+    ])
     .describe('Type of equipment or item being requested'),
   priority: z.enum(['low', 'medium', 'high', 'urgent']).default('medium').describe('Ticket priority level'),
   notes: z.string().optional().describe('Additional notes or specifications'),
