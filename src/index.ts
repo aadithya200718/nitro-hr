@@ -19,6 +19,11 @@ import { AppModule } from './app.module.js';
  * Bootstrap the HR Assistant MCP server
  */
 async function bootstrap() {
+  // Ensure the server binds to 0.0.0.0 for cloud deployments (e.g. NitroCloud)
+  if (!process.env.HOST) {
+    process.env.HOST = '0.0.0.0';
+  }
+  
   const server = await McpApplicationFactory.create(AppModule);
   await server.start();
 }
