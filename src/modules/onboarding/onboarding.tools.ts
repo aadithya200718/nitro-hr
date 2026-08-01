@@ -74,7 +74,8 @@ export class OnboardingTools {
     }
 
     // Step 5: Raise IT equipment tickets
-    const tickets = input.equipment.map((item) => {
+    const equipmentItems = input.equipment || ['Laptop', 'ID Card'];
+    const tickets = equipmentItems.map((item) => {
       const ticket = this.ticketService.create({
         employeeId: employee.id,
         item,

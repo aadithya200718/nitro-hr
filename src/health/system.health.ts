@@ -27,8 +27,9 @@ export class SystemHealthCheck implements HealthCheckInterface {
       const memoryUsedMB = Math.round(memoryUsage.heapUsed / 1024 / 1024);
       const memoryTotalMB = Math.round(memoryUsage.heapTotal / 1024 / 1024);
       
-      // Consider unhealthy if memory usage is > 90%
-      const memoryPercent = (memoryUsage.heapUsed / memoryUsage.heapTotal) * 100;
+      // Consider unhealthy if memory usage is > 90% of a typical 512MB limit
+      const ASSUMED_LIMIT_MB = 512;
+      const memoryPercent = (memoryUsedMB / ASSUMED_LIMIT_MB) * 100;
       const isHealthy = memoryPercent < 90;
       
       return {
