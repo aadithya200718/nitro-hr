@@ -22,6 +22,10 @@ export const SearchEmployeeSchema = z.object({
   name: z.string().describe('Full or partial name to search for'),
 });
 
+export const GetTalentInsightsSchema = z.object({
+  employeeId: z.string().describe('Employee ID to analyze (e.g., E001)'),
+});
+
 export interface Employee {
   id: string;
   name: string;

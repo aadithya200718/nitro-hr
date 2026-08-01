@@ -41,6 +41,41 @@
         }
       ],
       "tags": ["calculator", "math", "result"]
+    },
+    {
+      "uri": "/talent-insights",
+      "name": "AI Talent Insights Command Center",
+      "description": "A stunning glassmorphic dashboard displaying AI-generated employee insights, sentiment, and skill matrices.",
+      "examples": [
+        {
+          "name": "Engineering Example",
+          "description": "Shows the AI analysis for an engineering employee",
+          "data": {
+            "success": true,
+            "employee": {
+              "id": "E009",
+              "name": "Priya",
+              "role": "Senior Software Engineer",
+              "department": "Engineering"
+            },
+            "insights": {
+              "sentimentScore": 92,
+              "flightRisk": "Low",
+              "skillMetrics": {
+                "leadership": 60,
+                "technical": 95,
+                "communication": 85,
+                "innovation": 85,
+                "execution": 90
+              },
+              "growthAreas": ["Public Speaking", "System Design"],
+              "topSkills": ["System Architecture", "TypeScript", "Cloud Infra"],
+              "aiSummary": "[AI Analysis] Priya is performing exceptionally well in their role as Senior Software Engineer. They show strong potential for future leadership opportunities."
+            }
+          }
+        }
+      ],
+      "tags": ["hr", "ai", "insights", "talent", "dashboard"]
     }
   ],
   "generatedAt": "2025-01-01T00:00:00.000Z"

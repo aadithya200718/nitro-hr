@@ -1,6 +1,6 @@
 import { ControllerDecorator as Controller, ToolDecorator as Tool, Widget, ExecutionContext, UseGuards, z } from '@nitrostack/core';
 import { EmployeeService } from './employee.service.js';
-import { AddEmployeeSchema, GetEmployeeSchema, SearchEmployeeSchema } from './employee.schemas.js';
+import { AddEmployeeSchema, GetEmployeeSchema, SearchEmployeeSchema, GetTalentInsightsSchema } from './employee.schemas.js';
 import { ApiKeyGuard } from '../../common/guards/api-key.guard.js';
 
 /**
@@ -100,6 +100,56 @@ export class EmployeeTools {
     return {
       success: true,
       chart,
+    };
+  }
+
+  @Tool({
+    name: 'get_talent_insights',
+    description: 'Retrieve an AI-generated talent analysis for a specific employee, including skills, sentiment, and flight risk.',
+    inputSchema: GetTalentInsightsSchema,
+  })
+  @Widget('talent-insights')
+  async getTalentInsights(input: { employeeId: string }, ctx: ExecutionContext) {
+    const employee = this.employeeService.getById(input.employeeId);
+    
+    if (!employee) {
+      return { success: false, message: `Employee not found: ${input.employeeId}` };
+    }
+
+    // Mock AI Analysis Logic
+    const isEngineering = employee.department === 'Engineering';
+    const isManager = employee.role.includes('Manager') || employee.role.includes('VP') || employee.role.includes('Director');
+    
+    const sentimentScore = 85 + Math.floor(Math.random() * 10);
+    const flightRisk = sentimentScore > 90 ? 'Low' : 'Medium';
+    
+    const skillMetrics = {
+      leadership: isManager ? 95 : 60,
+      technical: isEngineering ? 95 : 40,
+      communication: isManager ? 90 : 75,
+      innovation: 85,
+      execution: 90
+    };
+
+    const growthAreas = isManager ? ['Strategic Planning', 'Cross-functional alignment'] : ['Public Speaking', 'System Design'];
+    const topSkills = isEngineering ? ['System Architecture', 'TypeScript', 'Cloud Infra'] : ['Team Motivation', 'Conflict Resolution', 'Hiring'];
+
+    return {
+      success: true,
+      employee: {
+        id: employee.id,
+        name: employee.name,
+        role: employee.role,
+        department: employee.department
+      },
+      insights: {
+        sentimentScore,
+        flightRisk,
+        skillMetrics,
+        growthAreas,
+        topSkills,
+        aiSummary: `[AI Analysis] ${employee.name} is performing exceptionally well in their role as ${employee.role}. They show strong potential for future leadership opportunities.`
+      }
     };
   }
 }
