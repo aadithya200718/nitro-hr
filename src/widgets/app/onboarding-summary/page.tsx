@@ -38,6 +38,16 @@ export default function OnboardingSummaryWidget() {
     );
   }
 
+  if (!data.summary) {
+    return (
+      <div style={{ padding: '24px', textAlign: 'center', color: theme === 'dark' ? '#fff' : '#000', background: theme === 'dark' ? 'rgba(239, 68, 68, 0.1)' : 'rgba(239, 68, 68, 0.05)', borderRadius: '16px', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+        <div style={{ fontSize: '32px', marginBottom: '16px' }}>⚠️</div>
+        <h2 style={{ margin: '0 0 8px 0', fontSize: '20px', color: '#ef4444' }}>Onboarding Incomplete</h2>
+        <p style={{ opacity: 0.8 }}>{data.message || 'An unexpected error occurred during the onboarding process.'}</p>
+      </div>
+    );
+  }
+
   const isDark = theme === 'dark';
   const bgColor = isDark ? 'linear-gradient(135deg, #1f2937 0%, #111827 100%)' : 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)';
   const textColor = isDark ? '#f9fafb' : '#111827';
