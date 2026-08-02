@@ -1,4 +1,4 @@
-# HR Automation Application
+ HR Automation Application
 
 ## Overview
 
