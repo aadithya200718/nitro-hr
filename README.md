@@ -1,7 +1,5 @@
  HR Automation Application
 
- Overview
-
 A comprehensive Human Resources automation platform designed to streamline employee management, leave processing, meeting scheduling, IT ticketing, and onboarding workflows. Built with NitroStack, this application acts as an MCP server featuring intelligent agent-driven task orchestration and interactive UI widgets.
 
 ## Core Features
