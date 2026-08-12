@@ -3,9 +3,9 @@
 A comprehensive Human Resources automation platform designed to streamline employee management, leave processing, meeting scheduling, IT ticketing, and onboarding workflows. Built with NitroStack, this application acts as an MCP server featuring intelligent agent-driven task orchestration and interactive UI widgets.
 Core Features
 
-- **Employee Management:** Add employees, retrieve details, search by name, and manage organizational hierarchies.
-- **Leave Management:** Track leave balances, process applications, and maintain comprehensive leave history.
-- **Meeting Scheduler:** Schedule, view, and cancel meetings with built-in conflict detection.
+Employee Management:** Add employees, retrieve details, search by name, and manage organizational hierarchies.
+Leave Management:** Track leave balances, process applications, and maintain comprehensive leave history.
+Meeting Scheduler:** Schedule, view, and cancel meetings with built-in conflict detection.
 - **IT Ticketing:** Create and track equipment requests for laptops, monitors, and accessories.
 - **Email Automation:** Automated notifications for onboarding, approvals, and updates via SMTP.
 - **Smart Onboarding:** Full onboarding workflow triggered from a single prompt, orchestrating multiple services simultaneously.
