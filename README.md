@@ -10,7 +10,7 @@ Meeting Scheduler:** Schedule, view, and cancel meetings with built-in conflict 
 - **Email Automation:** Automated notifications for onboarding, approvals, and updates via SMTP.
 - **Smart Onboarding:** Full onboarding workflow triggered from a single prompt, orchestrating multiple services simultaneously.
 
-## System Architecture
+ System Architecture
 
 The application is structured into modular domain services, utilizing dependency injection for inter-module communication. Data is currently managed using fast in-memory stores, which can be swapped out for persistent databases in production.
 
